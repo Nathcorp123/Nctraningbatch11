@@ -21,25 +21,29 @@ namespace PhpTravels01.Hooks
             driver = new ChromeDriver();
 
             driver.Manage().Window.Maximize();
+
+            ExplicitWaiting.waitForTime(5000);
+
+            // WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(50));
+
+        }
+
+        [BeforeScenario]
+        public static void BeforeScenario()
+        {
+
             driver.Navigate().GoToUrl("https://phptravels.com/demo/");
-            
-
-           Thread.Sleep(5000);
-
-          // WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(50));
-
-            //IList<IWebElement> urlxpath = driver.FindElements(By.XPath("//small"));
-            //int count = urlxpath.Count;
-            //urlxpath[1].Click();
-
-
 
         }
 
         [AfterFeature]
         public static void AfterFeature()
         {
+
            driver.Quit();
+
         }
+
+
     }
 }

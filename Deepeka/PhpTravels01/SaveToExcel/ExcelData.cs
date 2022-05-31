@@ -61,88 +61,30 @@ namespace PhpTravels01.SaveToExcel
         public void ExcelCode()
 
         {
-            ReadCredentials();
+           // ReadCredentials();
 
             Excel.Application xlApp = new Excel.Application();
             Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(FileName);
             Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
             Excel.Range xlRange = xlWorksheet.UsedRange;
-            //first col then row
+            //first row then col
             xlWorksheet.Cells[2, 1] = emailText;
             xlWorksheet.Cells[2, 2] = passwordText;
-          //  xlApp.Visible = false;
-          //  xlApp.UserControl = false;
+          
             xlWorkbook.Save();
 
-
-
-            ////cleanup
-            //GC.Collect();
-            //GC.WaitForPendingFinalizers();
-
-
-
-            ////release com objects to fully kill excel process from running in the background
-            //Marshal.ReleaseComObject(xlRange);
-            //Marshal.ReleaseComObject(xlWorksheet);
-
-
-
-            //close and release
+            //close 
             xlWorkbook.Close();
-           // Marshal.ReleaseComObject(xlWorkbook);
+          
 
 
 
-            //quit and release
+            //quit 
             xlApp.Quit();
-           // Marshal.ReleaseComObject(xlApp);
+          
         }
 
-        // public static string path = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "\\Result");
-
-        //public void ExcelCode()
-
-        //{
-
-        //    Application x1 = new Application();
-        //    //bool ex = Directory.Exists(path);
-
-        //  //  if (ex)
-        //   // {
-
-        //      //  bool fileexist = System.IO.File.Exists(path + filename + ".xlsx");
-
-        //     //   if (fileexist)
-        //       // {
-        //            Workbook workbook = x1.Workbooks.Open(@"C:\Users\Deepika\source\repos\PhpTravels01\PhpTravels01\Feature01\Fdata1.xlsx");
-
-        //            Worksheet worksheet = workbook.Sheets[1];
-        //            Range range = worksheet.UsedRange;
-        //            range.Cells[2,1] = emailText;
-        //            range.Cells[2, 2] = passwordText;
-
-        //            workbook.Save();
-        //            workbook.Close();
-        //      //  }
-
-
-        //        //else
-        //        //{
-        //        //    Console.WriteLine("output file does not exist");
-
-        //        //}
-
-        //  //  }
-
-        //    //else
-        //    //{
-        //    //    Console.WriteLine("Does not exist");
-        //    //}
-
-
-        //}
-
+       
 
     }
 }

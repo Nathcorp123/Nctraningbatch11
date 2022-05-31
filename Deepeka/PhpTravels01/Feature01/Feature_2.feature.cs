@@ -70,29 +70,29 @@ namespace PhpTravels01.Feature01
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("open php demo url and save userid and password to excel")]
+        [NUnit.Framework.DescriptionAttribute("1. open php demo url and save userid and password to excel")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void OpenPhpDemoUrlAndSaveUseridAndPasswordToExcel()
+        public virtual void _1_OpenPhpDemoUrlAndSaveUseridAndPasswordToExcel()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("open php demo url and save userid and password to excel", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1. open php demo url and save userid and password to excel", null, new string[] {
                         "mytag"});
 #line 5
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 6
- testRunner.Given("demo url and have to fetch it", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("the userid and passsword", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 7
- testRunner.And("save userid and passsword to excel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("fetch the userid and passsword and save to excel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("launch customerr front end site and make login")]
+        [NUnit.Framework.DescriptionAttribute("2. launch customerr front end site and make login")]
         [NUnit.Framework.CategoryAttribute("login")]
         [NUnit.Framework.TestCaseAttribute("user@phptravels.com", "demouser", new string[] {
                 "Source:Fdata1.xlsx:Sheet1"}, Category="Source:Fdata1.xlsx:Sheet1")]
-        public virtual void LaunchCustomerrFrontEndSiteAndMakeLogin(string emailId, string password, string[] exampleTags)
+        public virtual void _2_LaunchCustomerrFrontEndSiteAndMakeLogin(string userId, string password, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "login"};
@@ -100,30 +100,32 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("launch customerr front end site and make login", null, @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2. launch customerr front end site and make login", null, @__tags);
 #line 11
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 12
-    testRunner.Given("launch the Customer Frontt End site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("launch the Customer Front End site", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 13
- testRunner.And("Need to switch Windoww", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("Click on given url, it switch to next Window", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 14
- testRunner.Then(string.Format("Enter correctt Userid{0} and password{1}", emailId, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When(string.Format("Enter the Userid{0} and password{1}", userId, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 15
+ testRunner.Then("validate the Userid and Password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 16
  testRunner.And("Click on Loginn button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check for Flight button and Book flight")]
+        [NUnit.Framework.DescriptionAttribute("3. Check for Flight button and Book flight")]
         [NUnit.Framework.CategoryAttribute("To")]
         [NUnit.Framework.CategoryAttribute("Check")]
         [NUnit.Framework.CategoryAttribute("Flights")]
-        [NUnit.Framework.TestCaseAttribute("user@phptravels.com", "demouser", "PAT - Patna - Patina", "BLR - Bangalore - Bangalore", new string[] {
+        [NUnit.Framework.TestCaseAttribute("user@phptravels.com", "demouser", "PAT - Patna - Patina", "BLR - Bangalore - Bangalore", "03-06-2022", "06-06-2022", new string[] {
                 "Source:Fdata1.xlsx:Sheet1"}, Category="Source:Fdata1.xlsx:Sheet1")]
-        public virtual void CheckForFlightButtonAndBookFlight(string flyingFrom, string destination, string departureDate, string returnDate, string[] exampleTags)
+        public virtual void _3_CheckForFlightButtonAndBookFlight(string userId, string password, string flyingFrom, string destination, string departureDate, string returnDate, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "To",
@@ -133,23 +135,27 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check for Flight button and Book flight", null, @__tags);
-#line 23
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3. Check for Flight button and Book flight", null, @__tags);
+#line 25
  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 24
- testRunner.Given("click on the Flight button on the filght booking page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 25
- testRunner.And("click on the radio button of round trip", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 26
- testRunner.Then(string.Format("select the departure{0} and destination {1} place", flyingFrom, destination), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given(string.Format("the userid {0} and password {1} to login the Customer front end site", userId, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 27
- testRunner.And(string.Format("select the departure {0} and returning {1} date", departureDate, returnDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("it redirect to flight dashboard and validate it", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 28
- testRunner.And("search the passanger and click on search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("click on the Flight button on the flight booking page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 29
- testRunner.Then("click on the direct button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("click on the radio button of round trip", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 30
+ testRunner.Then(string.Format("select the departure{0} and destination {1} place", flyingFrom, destination), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 31
+ testRunner.And(string.Format("select the departure {0} and returning {1} date", departureDate, returnDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 32
+ testRunner.And("select the passanger", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 33
+ testRunner.Then("click on search button and hit on the direct button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 34
  testRunner.Then("take screenshot of flight price", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
