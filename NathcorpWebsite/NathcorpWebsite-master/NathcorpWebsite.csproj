@@ -1,0 +1,602 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\SpecFlow.Tools.MsBuild.Generation.2.4.0\build\SpecFlow.Tools.MsBuild.Generation.props" Condition="Exists('packages\SpecFlow.Tools.MsBuild.Generation.2.4.0\build\SpecFlow.Tools.MsBuild.Generation.props')" />
+  <Import Project="packages\Microsoft.NET.Test.Sdk.17.1.0\build\net45\Microsoft.NET.Test.Sdk.props" Condition="Exists('packages\Microsoft.NET.Test.Sdk.17.1.0\build\net45\Microsoft.NET.Test.Sdk.props')" />
+  <Import Project="packages\NUnit3TestAdapter.4.2.1\build\net35\NUnit3TestAdapter.props" Condition="Exists('packages\NUnit3TestAdapter.4.2.1\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="packages\NUnit.3.13.3\build\NUnit.props" Condition="Exists('packages\NUnit.3.13.3\build\NUnit.props')" />
+  <Import Project="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.props" Condition="Exists('packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.props')" />
+  <Import Project="packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.props" Condition="Exists('packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{56543BB8-D163-4CEF-84A8-DB1502EF6146}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NathcorpWebsite</RootNamespace>
+    <AssemblyName>NathcorpWebsite</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.86.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\lib\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Gherkin, Version=5.0.0.0, Culture=neutral, PublicKeyToken=86496cfa5b4a5851, processorArchitecture=MSIL">
+      <HintPath>packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\lib\Gherkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.CodeCoverage.Shim, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeCoverage.17.1.0\lib\net45\Microsoft.VisualStudio.CodeCoverage.Shim.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\MSTest.TestFramework.2.1.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\MSTest.TestFramework.2.1.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.13.3.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>packages\NUnit.3.13.3\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="SeleniumExtras.WaitHelpers, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetSeleniumExtras.WaitHelpers.3.11.0\lib\net45\SeleniumExtras.WaitHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlow.Plus.Excel, Version=1.8.0.0, Culture=neutral, PublicKeyToken=d0fc5cc18b3b389b, processorArchitecture=MSIL">
+      <HintPath>packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\lib\SpecFlow.Plus.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecFlow.Plus.Excel.SpecFlowPlugin, Version=1.8.0.0, Culture=neutral, PublicKeyToken=d0fc5cc18b3b389b, processorArchitecture=MSIL">
+      <HintPath>packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\lib\SpecFlow.Plus.Excel.SpecFlowPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TechTalk.SpecFlow, Version=2.4.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <HintPath>packages\SpecFlow.2.4.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Selenium.WebDriver.4.1.0\lib\net47\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Selenium.Support.4.1.0\lib\net47\WebDriver.Support.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\data.cs" />
+    <Compile Include="Feature\Nathcorp.feature.cs" />
+    <Compile Include="Feature\Nathcorpwebsite.feature.cs" />
+    <Compile Include="Microsoft\VisualStudio\TestPlatform.cs" />
+    <Compile Include="NathcorpwebsiteSteps\Nathcorpstep.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="packages\Microsoft.NET.Test.Sdk.17.1.0\build\netcoreapp1.0\Microsoft.NET.Test.Sdk.Program.cs" />
+    <Compile Include="packages\Microsoft.NET.Test.Sdk.17.1.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.cs" />
+    <Compile Include="Steps\ActiveDirectorySteps.cs" />
+    <Compile Include="Steps\ApplyNow.cs" />
+    <Compile Include="Steps\Applynowwithexcel.cs" />
+    <Compile Include="Steps\App_Modernization.cs" />
+    <Compile Include="Steps\Cloud_Enablement.cs" />
+    <Compile Include="Steps\ContactUs1Form.cs" />
+    <Compile Include="Steps\Contact_Us.cs" />
+    <Compile Include="Steps\Docsync.cs" />
+    <Compile Include="Steps\Emerging_Technologies.cs" />
+    <Compile Include="Steps\M365_Governance_Manager.cs" />
+    <Compile Include="Steps\Managed_Services.cs" />
+    <Compile Include="Steps\Modern_Deployment.cs" />
+    <Compile Include="Steps\Product.cs" />
+    <Compile Include="Steps\Security.cs" />
+    <Compile Include="Steps\Service.cs" />
+    <Compile Include="Steps\Teams_and_Collaboration.cs" />
+    <Compile Include="Steps\Teams_Tempo.cs" />
+    <Compile Include="Steps\whowearepage.cs" />
+    <Compile Include="Steps\Whowedoittfor.cs" />
+    <Compile Include="Steps\Why_People_Use_Us.cs" />
+    <Compile Include="Steps\Working_AT_Nathcorp.cs" />
+    <Compile Include="TestHooks\Hooks.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilityclass\Nathcorpclass.cs" />
+    <Compile Include="wait\ExplicitWaiting.cs" />
+    <Compile Include="Xpaths\xpath.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Feature\Applynowsheet.xlsx" />
+    <None Include="bin\Debug\NathcorpWebsite.dll.config" />
+    <None Include="Feature\ContactUs.xlsx" />
+    <None Include="Feature\Nathcorp.feature" />
+    <None Include="Feature\Nathcorpwebsite.feature" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\NathcorpWebsite.csproj.CopyComplete" />
+    <None Include="obj\Debug\NathcorpWebsite.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\NathcorpWebsite.csprojAssemblyReference.cache" />
+    <None Include="packages.config" />
+    <None Include="packages\Microsoft.CodeCoverage.17.1.0\.signature.p7s" />
+    <None Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\amd64\VanguardInstrumentationProfiler_x64.config" />
+    <None Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\CodeCoverage.config" />
+    <None Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\VanguardInstrumentationProfiler_x86.config" />
+    <None Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\InstrumentationEngine\alpine\x64\libCoverageInstrumentationMethod.so" />
+    <None Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\InstrumentationEngine\alpine\x64\libInstrumentationEngine.so" />
+    <None Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\InstrumentationEngine\alpine\x64\VanguardInstrumentationProfiler_x64.config" />
+    <None Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\InstrumentationEngine\macos\x64\libCoverageInstrumentationMethod.dylib" />
+    <None Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\InstrumentationEngine\macos\x64\libInstrumentationEngine.dylib" />
+    <None Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\InstrumentationEngine\macos\x64\VanguardInstrumentationProfiler_x64.config" />
+    <None Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\InstrumentationEngine\ubuntu\x64\libCoverageInstrumentationMethod.so" />
+    <None Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\InstrumentationEngine\ubuntu\x64\libInstrumentationEngine.so" />
+    <None Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\InstrumentationEngine\ubuntu\x64\VanguardInstrumentationProfiler_x64.config" />
+    <None Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.props" />
+    <None Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.targets" />
+    <None Include="packages\Microsoft.CodeCoverage.17.1.0\Microsoft.CodeCoverage.17.1.0.nupkg" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\.signature.p7s" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\buildMultiTargeting\Microsoft.NET.Test.Sdk.props" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\build\net40\Microsoft.NET.Test.Sdk.props" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\build\net40\Microsoft.NET.Test.Sdk.targets" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\build\net45\Microsoft.NET.Test.Sdk.props" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\build\net45\Microsoft.NET.Test.Sdk.targets" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\build\netcoreapp1.0\Microsoft.NET.Test.Sdk.Program.fs" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\build\netcoreapp1.0\Microsoft.NET.Test.Sdk.props" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\build\netcoreapp1.0\Microsoft.NET.Test.Sdk.targets" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.fs" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.props" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.targets" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\build\uap10.0\Microsoft.NET.Test.Sdk.props" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\lib\net40\_._" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\lib\net45\_._" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\lib\netcoreapp1.0\_._" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\lib\netcoreapp2.1\_._" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\lib\uap10.0\_._" />
+    <None Include="packages\Microsoft.NET.Test.Sdk.17.1.0\Microsoft.NET.Test.Sdk.17.1.0.nupkg" />
+    <None Include="packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\.signature.p7s" />
+    <None Include="packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\Microsoft.Office.Interop.Excel.15.0.4795.1000.nupkg" />
+    <None Include="packages\MSTest.TestAdapter.2.1.2\.signature.p7s" />
+    <None Include="packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.props" />
+    <None Include="packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.targets" />
+    <None Include="packages\MSTest.TestAdapter.2.1.2\build\netcoreapp1.0\MSTest.TestAdapter.props" />
+    <None Include="packages\MSTest.TestAdapter.2.1.2\build\uap10.0\MSTest.TestAdapter.props" />
+    <None Include="packages\MSTest.TestAdapter.2.1.2\build\uap10.0\MSTest.TestAdapter.targets" />
+    <None Include="packages\MSTest.TestAdapter.2.1.2\MSTest.TestAdapter.2.1.2.nupkg" />
+    <None Include="packages\MSTest.TestFramework.2.1.2\.signature.p7s" />
+    <None Include="packages\MSTest.TestFramework.2.1.2\MSTest.TestFramework.2.1.2.nupkg" />
+    <None Include="packages\Newtonsoft.Json.10.0.3\.signature.p7s" />
+    <None Include="packages\Newtonsoft.Json.10.0.3\LICENSE.md" />
+    <None Include="packages\Newtonsoft.Json.10.0.3\Newtonsoft.Json.10.0.3.nupkg" />
+    <None Include="packages\Newtonsoft.Json.10.0.3\tools\install.ps1" />
+    <None Include="packages\NUnit.3.13.3\.signature.p7s" />
+    <None Include="packages\NUnit.3.13.3\build\NUnit.props" />
+    <None Include="packages\NUnit.3.13.3\CHANGES.md" />
+    <None Include="packages\NUnit.3.13.3\NUnit.3.13.3.nupkg" />
+    <None Include="packages\NUnit3TestAdapter.4.2.1\.signature.p7s" />
+    <None Include="packages\NUnit3TestAdapter.4.2.1\build\net35\NUnit3TestAdapter.props" />
+    <None Include="packages\NUnit3TestAdapter.4.2.1\build\netcoreapp2.1\NUnit3TestAdapter.props" />
+    <None Include="packages\NUnit3TestAdapter.4.2.1\NUnit3TestAdapter.4.2.1.nupkg" />
+    <None Include="packages\Selenium.Support.4.1.0\.signature.p7s" />
+    <None Include="packages\Selenium.Support.4.1.0\Selenium.Support.4.1.0.nupkg" />
+    <None Include="packages\Selenium.WebDriver.4.1.0\.signature.p7s" />
+    <None Include="packages\Selenium.WebDriver.4.1.0\Selenium.WebDriver.4.1.0.nupkg" />
+    <None Include="packages\Selenium.WebDriver.ChromeDriver.100.0.4896.6000\.signature.p7s" />
+    <None Include="packages\Selenium.WebDriver.ChromeDriver.100.0.4896.6000\build\DefinePropertiesChromeDriver.targets" />
+    <None Include="packages\Selenium.WebDriver.ChromeDriver.100.0.4896.6000\build\Selenium.WebDriver.ChromeDriver.targets" />
+    <None Include="packages\Selenium.WebDriver.ChromeDriver.100.0.4896.6000\driver\linux64\chromedriver" />
+    <None Include="packages\Selenium.WebDriver.ChromeDriver.100.0.4896.6000\driver\mac64\chromedriver" />
+    <None Include="packages\Selenium.WebDriver.ChromeDriver.100.0.4896.6000\README.md" />
+    <None Include="packages\Selenium.WebDriver.ChromeDriver.100.0.4896.6000\Selenium.WebDriver.ChromeDriver.100.0.4896.6000.nupkg" />
+    <None Include="packages\SpecFlow.2.4.1\.signature.p7s" />
+    <None Include="packages\SpecFlow.2.4.1\build\SpecFlow.targets" />
+    <None Include="packages\SpecFlow.2.4.1\content\App.config.transform" />
+    <None Include="packages\SpecFlow.2.4.1\SpecFlow.2.4.1.nupkg" />
+    <None Include="packages\SpecFlow.2.4.1\tools\app.config" />
+    <None Include="packages\SpecFlow.2.4.1\tools\Licenses\Newtonsoft.Json-LICENSE-MIT.md" />
+    <None Include="packages\SpecFlow.2.4.1\tools\plugincompability.config" />
+    <None Include="packages\SpecFlow.2.4.1\tools\specflow.exe.config" />
+    <None Include="packages\SpecFlow.2.4.1\tools\TechTalk.SpecFlow.props" />
+    <None Include="packages\SpecFlow.2.4.1\tools\TechTalk.SpecFlow.targets" />
+    <None Include="packages\SpecFlow.2.4.1\tools\TechTalk.SpecFlow.tasks" />
+    <None Include="packages\SpecFlow.NUnit.2.4.1\.signature.p7s" />
+    <None Include="packages\SpecFlow.NUnit.2.4.1\build\_._" />
+    <None Include="packages\SpecFlow.NUnit.2.4.1\content\App.config.transform" />
+    <None Include="packages\SpecFlow.NUnit.2.4.1\lib\_._" />
+    <None Include="packages\SpecFlow.NUnit.2.4.1\SpecFlow.NUnit.2.4.1.nupkg" />
+    <None Include="packages\SpecFlow.NUnit.2.4.1\tools\_._" />
+    <None Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\.signature.p7s" />
+    <None Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\build\_._" />
+    <None Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\content\App.config.transform" />
+    <None Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\docs\Background.feature" />
+    <None Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\docs\BasicScenario.feature" />
+    <None Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\docs\FeatureSettings.feature" />
+    <None Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\docs\Sample-ExcelExamples.feature" />
+    <None Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\docs\Sample-ExcelExamples.xlsx" />
+    <None Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\docs\Sample-ExcelFeature.feature.xlsx" />
+    <None Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\docs\ScenarioOutline.feature" />
+    <None Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\docs\SkippedContent.feature" />
+    <None Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\docs\StepArguments.feature" />
+    <None Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036.nupkg" />
+    <None Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\tools\Licenses\Newtonsoft.Json-LICENSE-MIT.md" />
+    <None Include="packages\SpecFlow.Tools.MsBuild.Generation.2.4.1\.signature.p7s" />
+    <None Include="packages\SpecFlow.Tools.MsBuild.Generation.2.4.1\build\SpecFlow.Tools.MsBuild.Generation.props" />
+    <None Include="packages\SpecFlow.Tools.MsBuild.Generation.2.4.1\build\SpecFlow.Tools.MsBuild.Generation.targets" />
+    <None Include="packages\SpecFlow.Tools.MsBuild.Generation.2.4.1\content\_._" />
+    <None Include="packages\SpecFlow.Tools.MsBuild.Generation.2.4.1\lib\_._" />
+    <None Include="packages\SpecFlow.Tools.MsBuild.Generation.2.4.1\SpecFlow.Tools.MsBuild.Generation.2.4.1.nupkg" />
+    <None Include="packages\SpecFlow.Tools.MsBuild.Generation.2.4.1\tools\_._" />
+    <None Include="packages\System.ValueTuple.4.3.0\.signature.p7s" />
+    <None Include="packages\System.ValueTuple.4.3.0\System.ValueTuple.4.3.0.nupkg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\chromedriver.exe" />
+    <Content Include="bin\Debug\ClosedXML.dll" />
+    <Content Include="bin\Debug\DocumentFormat.OpenXml.dll" />
+    <Content Include="bin\Debug\Gherkin.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.CodeCoverage.Shim.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="bin\Debug\NathcorpWebsite.dll" />
+    <Content Include="bin\Debug\NathcorpWebsite.pdb" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\nunit.engine.api.dll" />
+    <Content Include="bin\Debug\nunit.engine.core.dll" />
+    <Content Include="bin\Debug\nunit.engine.dll" />
+    <Content Include="bin\Debug\nunit.framework.dll" />
+    <Content Include="bin\Debug\nunit.framework.xml" />
+    <Content Include="bin\Debug\NUnit3.TestAdapter.dll" />
+    <Content Include="bin\Debug\NUnit3.TestAdapter.pdb" />
+    <Content Include="bin\Debug\SpecFlow.Plus.Excel.dll" />
+    <Content Include="bin\Debug\SpecFlow.Plus.Excel.SpecFlowPlugin.dll" />
+    <Content Include="bin\Debug\TechTalk.SpecFlow.dll" />
+    <Content Include="bin\Debug\testcentric.engine.metadata.dll" />
+    <Content Include="bin\Debug\WebDriver.dll" />
+    <Content Include="bin\Debug\WebDriver.Support.dll" />
+    <Content Include="obj\Debug\NathcorpWebsite.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\NathcorpWebsite.dll" />
+    <Content Include="obj\Debug\NathcorpWebsite.pdb" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\amd64\CodeCoverage.exe" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\amd64\covrun64.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\amd64\msdia140.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\amd64\msvcdis140.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\amd64\msvcp140.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\amd64\msvcp140_atomic_wait.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\amd64\vcruntime140.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\amd64\vcruntime140_1.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\CodeCoverage.exe" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\codecoveragemessages.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\coreclr\Microsoft.VisualStudio.CodeCoverage.Shim.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\covrun32.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\msdia140.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\msvcdis140.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\msvcp140.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\msvcp140_atomic_wait.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\CodeCoverage\vcruntime140.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\cs\Microsoft.VisualStudio.TraceDataCollector.resources.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\de\Microsoft.VisualStudio.TraceDataCollector.resources.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\es\Microsoft.VisualStudio.TraceDataCollector.resources.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\fr\Microsoft.VisualStudio.TraceDataCollector.resources.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\InstrumentationEngine\x64\MicrosoftInstrumentationEngine_x64.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\InstrumentationEngine\x86\MicrosoftInstrumentationEngine_x86.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\it\Microsoft.VisualStudio.TraceDataCollector.resources.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\ja\Microsoft.VisualStudio.TraceDataCollector.resources.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\ko\Microsoft.VisualStudio.TraceDataCollector.resources.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.VisualStudio.Coverage.Core.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.VisualStudio.Coverage.Instrumentation.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.VisualStudio.Coverage.Interprocess.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.VisualStudio.TraceDataCollector.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Mono.Cecil.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Mono.Cecil.Pdb.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\pl\Microsoft.VisualStudio.TraceDataCollector.resources.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\pt-BR\Microsoft.VisualStudio.TraceDataCollector.resources.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\ru\Microsoft.VisualStudio.TraceDataCollector.resources.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\ThirdPartyNotices.txt" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\tr\Microsoft.VisualStudio.TraceDataCollector.resources.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\zh-Hans\Microsoft.VisualStudio.TraceDataCollector.resources.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\zh-Hant\Microsoft.VisualStudio.TraceDataCollector.resources.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\Icon.png" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\lib\net45\Microsoft.VisualStudio.CodeCoverage.Shim.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\lib\netcoreapp1.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\LICENSE_NET.txt" />
+    <Content Include="packages\Microsoft.CodeCoverage.17.1.0\ThirdPartyNotices.txt" />
+    <Content Include="packages\Microsoft.NET.Test.Sdk.17.1.0\build\netcoreapp1.0\Microsoft.NET.Test.Sdk.Program.vb" />
+    <Content Include="packages\Microsoft.NET.Test.Sdk.17.1.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.vb" />
+    <Content Include="packages\Microsoft.NET.Test.Sdk.17.1.0\Icon.png" />
+    <Content Include="packages\Microsoft.NET.Test.Sdk.17.1.0\LICENSE_NET.txt" />
+    <Content Include="packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\netcoreapp1.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\uap10.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\cs\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\cs\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\de\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\de\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\de\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\es\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\es\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\es\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\fr\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\fr\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\it\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\it\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\it\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\ja\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\ja\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\ko\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\ko\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\pl\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\pl\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\pt\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\pt\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\ru\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\tr\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\tr\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\zh-Hans\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\zh-Hant\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\zh-Hant\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\build\_common\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll" />
+    <Content Include="packages\MSTest.TestAdapter.2.1.2\LICENSE.txt" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\de\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\de\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\es\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\es\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\it\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\it\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.XML" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.XML" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\net45\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\es\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\es\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\it\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\it\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.XML" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\Microsoft.VisualStudio.TestPlatform.TestFramework.XML" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\netstandard1.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\cs\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\de\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\es\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\es\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\fr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\it\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\it\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\ja\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\ko\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.XML" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.XML" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\pl\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\tr\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\lib\uap10.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.TestFramework.xml" />
+    <Content Include="packages\MSTest.TestFramework.2.1.2\LICENSE.txt" />
+    <Content Include="packages\Newtonsoft.Json.10.0.3\lib\net20\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.10.0.3\lib\net20\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.10.0.3\lib\net35\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.10.0.3\lib\net35\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.10.0.3\lib\netstandard1.0\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.10.0.3\lib\netstandard1.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.10.0.3\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.10.0.3\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.xml" />
+    <Content Include="packages\NUnit.3.13.3\icon.png" />
+    <Content Include="packages\NUnit.3.13.3\lib\net35\nunit.framework.dll" />
+    <Content Include="packages\NUnit.3.13.3\lib\net35\nunit.framework.xml" />
+    <Content Include="packages\NUnit.3.13.3\lib\net40\nunit.framework.dll" />
+    <Content Include="packages\NUnit.3.13.3\lib\net40\nunit.framework.xml" />
+    <Content Include="packages\NUnit.3.13.3\lib\net45\nunit.framework.dll" />
+    <Content Include="packages\NUnit.3.13.3\lib\net45\nunit.framework.xml" />
+    <Content Include="packages\NUnit.3.13.3\lib\netstandard2.0\nunit.framework.dll" />
+    <Content Include="packages\NUnit.3.13.3\lib\netstandard2.0\nunit.framework.xml" />
+    <Content Include="packages\NUnit.3.13.3\LICENSE.txt" />
+    <Content Include="packages\NUnit.3.13.3\NOTICES.txt" />
+    <Content Include="packages\NUnit3TestAdapter.4.2.1\build\net35\nunit.engine.api.dll" />
+    <Content Include="packages\NUnit3TestAdapter.4.2.1\build\net35\nunit.engine.core.dll" />
+    <Content Include="packages\NUnit3TestAdapter.4.2.1\build\net35\nunit.engine.dll" />
+    <Content Include="packages\NUnit3TestAdapter.4.2.1\build\net35\NUnit3.TestAdapter.dll" />
+    <Content Include="packages\NUnit3TestAdapter.4.2.1\build\net35\NUnit3.TestAdapter.pdb" />
+    <Content Include="packages\NUnit3TestAdapter.4.2.1\build\net35\testcentric.engine.metadata.dll" />
+    <Content Include="packages\NUnit3TestAdapter.4.2.1\build\netcoreapp2.1\nunit.engine.api.dll" />
+    <Content Include="packages\NUnit3TestAdapter.4.2.1\build\netcoreapp2.1\nunit.engine.core.dll" />
+    <Content Include="packages\NUnit3TestAdapter.4.2.1\build\netcoreapp2.1\nunit.engine.dll" />
+    <Content Include="packages\NUnit3TestAdapter.4.2.1\build\netcoreapp2.1\NUnit3.TestAdapter.dll" />
+    <Content Include="packages\NUnit3TestAdapter.4.2.1\build\netcoreapp2.1\NUnit3.TestAdapter.pdb" />
+    <Content Include="packages\NUnit3TestAdapter.4.2.1\build\netcoreapp2.1\testcentric.engine.metadata.dll" />
+    <Content Include="packages\Selenium.Support.4.1.0\images\icon.png" />
+    <Content Include="packages\Selenium.Support.4.1.0\lib\net45\WebDriver.Support.dll" />
+    <Content Include="packages\Selenium.Support.4.1.0\lib\net46\WebDriver.Support.dll" />
+    <Content Include="packages\Selenium.Support.4.1.0\lib\net47\WebDriver.Support.dll" />
+    <Content Include="packages\Selenium.Support.4.1.0\lib\net48\WebDriver.Support.dll" />
+    <Content Include="packages\Selenium.Support.4.1.0\lib\net5.0\WebDriver.Support.dll" />
+    <Content Include="packages\Selenium.Support.4.1.0\lib\netstandard2.0\WebDriver.Support.dll" />
+    <Content Include="packages\Selenium.Support.4.1.0\lib\netstandard2.1\WebDriver.Support.dll" />
+    <Content Include="packages\Selenium.WebDriver.4.1.0\images\icon.png" />
+    <Content Include="packages\Selenium.WebDriver.4.1.0\lib\net45\WebDriver.dll" />
+    <Content Include="packages\Selenium.WebDriver.4.1.0\lib\net46\WebDriver.dll" />
+    <Content Include="packages\Selenium.WebDriver.4.1.0\lib\net47\WebDriver.dll" />
+    <Content Include="packages\Selenium.WebDriver.4.1.0\lib\net48\WebDriver.dll" />
+    <Content Include="packages\Selenium.WebDriver.4.1.0\lib\net5.0\WebDriver.dll" />
+    <Content Include="packages\Selenium.WebDriver.4.1.0\lib\netstandard2.0\WebDriver.dll" />
+    <Content Include="packages\Selenium.WebDriver.4.1.0\lib\netstandard2.1\WebDriver.dll" />
+    <Content Include="packages\Selenium.WebDriver.ChromeDriver.100.0.4896.6000\driver\win32\chromedriver.exe" />
+    <Content Include="packages\Selenium.WebDriver.ChromeDriver.100.0.4896.6000\nupkg-icon.png" />
+    <Content Include="packages\SpecFlow.2.4.1\changelog.txt" />
+    <Content Include="packages\SpecFlow.2.4.1\lib\net45\TechTalk.SpecFlow.dll" />
+    <Content Include="packages\SpecFlow.2.4.1\LICENSE.txt" />
+    <Content Include="packages\SpecFlow.2.4.1\tools\CommandLine.dll" />
+    <Content Include="packages\SpecFlow.2.4.1\tools\Gherkin.dll" />
+    <Content Include="packages\SpecFlow.2.4.1\tools\Licenses\BoDi-LICENSE-Apache2.txt" />
+    <Content Include="packages\SpecFlow.2.4.1\tools\Licenses\Gherkin-LICENSE-MIT.txt" />
+    <Content Include="packages\SpecFlow.2.4.1\tools\Licenses\System.ValueTuple-LICENSE-MIT.txt" />
+    <Content Include="packages\SpecFlow.2.4.1\tools\Newtonsoft.Json.dll" />
+    <Content Include="packages\SpecFlow.2.4.1\tools\specflow.exe" />
+    <Content Include="packages\SpecFlow.2.4.1\tools\System.ValueTuple.dll" />
+    <Content Include="packages\SpecFlow.2.4.1\tools\TechTalk.SpecFlow.dll" />
+    <Content Include="packages\SpecFlow.2.4.1\tools\TechTalk.SpecFlow.Generator.dll" />
+    <Content Include="packages\SpecFlow.2.4.1\tools\TechTalk.SpecFlow.Parser.dll" />
+    <Content Include="packages\SpecFlow.2.4.1\tools\TechTalk.SpecFlow.Reporting.dll" />
+    <Content Include="packages\SpecFlow.2.4.1\tools\TechTalk.SpecFlow.Utils.dll" />
+    <Content Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\changelog.txt" />
+    <Content Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\docs\readme.txt" />
+    <Content Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\lib\ClosedXML.dll" />
+    <Content Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\lib\DocumentFormat.OpenXml.dll" />
+    <Content Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\lib\Gherkin.dll" />
+    <Content Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\lib\SpecFlow.Plus.Excel.dll" />
+    <Content Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\lib\SpecFlow.Plus.Excel.SpecFlowPlugin.dll" />
+    <Content Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\readme.txt" />
+    <Content Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\tools\Licenses\ClosedXml-LICENSE-MIT.txt" />
+    <Content Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\tools\Licenses\DocumentFormat.OpenXml-LICENSE-MIT.txt" />
+    <Content Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\tools\Licenses\Gherkin-LICENSE-MIT.txt" />
+    <Content Include="packages\SpecFlow.Plus.Excel.2-4-0.1.8.0-unstable036\tools\Licenses\System.ValueTuple-LICENSE-MIT.txt" />
+    <Content Include="packages\System.ValueTuple.4.3.0\dotnet_library_license.txt" />
+    <Content Include="packages\System.ValueTuple.4.3.0\lib\netstandard1.0\.xml" />
+    <Content Include="packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll" />
+    <Content Include="packages\System.ValueTuple.4.3.0\lib\portable-net40+sl4+win8+wp8\.xml" />
+    <Content Include="packages\System.ValueTuple.4.3.0\lib\portable-net40+sl4+win8+wp8\System.ValueTuple.dll" />
+    <Content Include="packages\System.ValueTuple.4.3.0\ThirdPartyNotices.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data Validation\" />
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="TestResults\" />
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.props'))" />
+    <Error Condition="!Exists('packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.targets'))" />
+    <Error Condition="!Exists('packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.targets'))" />
+    <Error Condition="!Exists('packages\NUnit.3.13.3\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NUnit.3.13.3\build\NUnit.props'))" />
+    <Error Condition="!Exists('packages\NUnit3TestAdapter.4.2.1\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NUnit3TestAdapter.4.2.1\build\net35\NUnit3TestAdapter.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.NET.Test.Sdk.17.1.0\build\net45\Microsoft.NET.Test.Sdk.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.NET.Test.Sdk.17.1.0\build\net45\Microsoft.NET.Test.Sdk.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.NET.Test.Sdk.17.1.0\build\net45\Microsoft.NET.Test.Sdk.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.NET.Test.Sdk.17.1.0\build\net45\Microsoft.NET.Test.Sdk.targets'))" />
+    <Error Condition="!Exists('packages\SpecFlow.2.4.0\build\SpecFlow.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SpecFlow.2.4.0\build\SpecFlow.targets'))" />
+    <Error Condition="!Exists('packages\SpecFlow.Tools.MsBuild.Generation.2.4.0\build\SpecFlow.Tools.MsBuild.Generation.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SpecFlow.Tools.MsBuild.Generation.2.4.0\build\SpecFlow.Tools.MsBuild.Generation.props'))" />
+    <Error Condition="!Exists('packages\SpecFlow.Tools.MsBuild.Generation.2.4.0\build\SpecFlow.Tools.MsBuild.Generation.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SpecFlow.Tools.MsBuild.Generation.2.4.0\build\SpecFlow.Tools.MsBuild.Generation.targets'))" />
+    <Error Condition="!Exists('packages\Selenium.WebDriver.ChromeDriver.102.0.5005.6102\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Selenium.WebDriver.ChromeDriver.102.0.5005.6102\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+  </Target>
+  <Import Project="packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.targets" Condition="Exists('packages\MSTest.TestAdapter.2.1.2\build\net45\MSTest.TestAdapter.targets')" />
+  <Import Project="packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.targets" Condition="Exists('packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.targets')" />
+  <Import Project="packages\Microsoft.NET.Test.Sdk.17.1.0\build\net45\Microsoft.NET.Test.Sdk.targets" Condition="Exists('packages\Microsoft.NET.Test.Sdk.17.1.0\build\net45\Microsoft.NET.Test.Sdk.targets')" />
+  <Import Project="packages\SpecFlow.2.4.0\build\SpecFlow.targets" Condition="Exists('packages\SpecFlow.2.4.0\build\SpecFlow.targets')" />
+  <Import Project="packages\SpecFlow.Tools.MsBuild.Generation.2.4.0\build\SpecFlow.Tools.MsBuild.Generation.targets" Condition="Exists('packages\SpecFlow.Tools.MsBuild.Generation.2.4.0\build\SpecFlow.Tools.MsBuild.Generation.targets')" />
+  <Import Project="packages\Selenium.WebDriver.ChromeDriver.102.0.5005.6102\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('packages\Selenium.WebDriver.ChromeDriver.102.0.5005.6102\build\Selenium.WebDriver.ChromeDriver.targets')" />
+</Project>
