@@ -12,10 +12,9 @@
 
     steps:
     uses: actions/checkout@v2
-
-   
-    name: Setup MsBuild
-    uses: microsoft/setup-msbuild@v1
+    
+    - name: setup-msbuild
+  uses: microsoft/setup-msbuild@v1.1
 
     name:  Setup NuGet
     uses:NuGet/Setup-nuget@v1.0.5
@@ -33,5 +32,5 @@
     run:
     msbuild.exe  NathcorpWebsite.sln/p:platform="Any CPU" /p:configuration="Release"
 
-    name: Run Tests
+    name: Run Tests|
     run: vstest.console.exe.\tests\NathcorpWebsite.Tests\bin\Release\NathcorpWebsite.Tests.dll
