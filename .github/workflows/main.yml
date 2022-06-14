@@ -1,4 +1,4 @@
-name: Build , Tests and Send mails
+name: Build Tests and Send mails
 
 on:
   push:
